@@ -1,0 +1,23 @@
+parameters:
+    paths:
+        - app
+        - bootstrap
+        - config
+        - database
+        - routes
+        - tests
+    # The level 8 is the highest level
+    level: 8
+    ignoreErrors:
+        -  identifier: missingType.iterableValue
+#        -  identifier: missingType.generics
+#        -
+#            message: '#Cannot call method .+\(\) on Illuminate\\Testing\\PendingCommand\|int\.#'
+#            paths:
+#                - tests/Feature/Commands/v1/VoucherMailSenderTest.php
+#                - tests/Feature/Commands/v1/DailyReportSenderTest.php
+#        -
+#            message: '#Parameter \#2 \$answer of method Illuminate\\Testing\\PendingCommand::expectsQuestion\(\) expects bool\|string, string\|null given\.#'
+#            path: tests/Feature/Commands/v1/VoucherMailSenderTest.php
+    excludePaths:
+        - ./routes/console.php

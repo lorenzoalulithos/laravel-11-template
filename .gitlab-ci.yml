@@ -1,0 +1,41 @@
+variables:
+  MYSQL_ROOT_PASSWORD: db
+  MYSQL_USER: db
+  MYSQL_PASSWORD: db
+  MYSQL_DATABASE: db
+  DB_HOST: mysql
+
+cache:
+  paths:
+    - vendor/
+    - node_modules/
+
+stages:
+  - test
+  - deploy
+
+.config:
+  image: thecodingmachine/php:8.2-v4-fpm-node20
+  services:
+    - mysql:latest
+  before_script:
+    - npm install
+    - composer install --prefer-dist --no-ansi --no-interaction --no-progress
+    - cp .env.example .env
+    - php artisan key:generate
+    - php artisan config:cache
+    - php artisan migrate:refresh --seed
+
+code-style-and-tests:
+  stage: test
+  extends:
+    - .config
+  script:
+    - composer test-style
+    - php artisan test
+
+include:
+  - template: Security/Dependency-Scanning.gitlab-ci.yml
+  - template: Security/SAST.gitlab-ci.yml
+  - template: Security/Secret-Detection.gitlab-ci.yml
+
