@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Database\Factories;
+namespace Database\Factories\Database\v1;
 
-use App\Models\User;
+use App\Models\Database\v1\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 final class UserFactory extends Factory
 {
     /**
-     * The current password being used by the factory.
+     * @var string|null
      */
     protected static ?string $password;
 
