@@ -14,6 +14,6 @@ final class ExampleTest extends TestCase
      */
     public function that_true_is_true(): void
     {
-        $this->assertTrue(true);
+        $this->assertTrue(true); // @phpstan-ignore-line
     }
 }

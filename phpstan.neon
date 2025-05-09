@@ -13,7 +13,7 @@ parameters:
     # The level 8 is the highest level
     level: 8
     ignoreErrors:
-        -  identifier: missingType.iterableValue
+  #      -  identifier: missingType.iterableValue
 #        -  identifier: missingType.generics
 #        -
 #            message: '#Cannot call method .+\(\) on Illuminate\\Testing\\PendingCommand\|int\.#'
