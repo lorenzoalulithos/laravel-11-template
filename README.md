@@ -1,6 +1,6 @@
-# laravel-template-name
+# laravel-12-template-name
 
-laravel-template-description
+laravel-12-template-description
 
 <!--delete-->
 ---
@@ -116,7 +116,7 @@ ddev exec XDEBUG_MODE=coverage php artisan test
 Reports are in `public/coverage` and visible at
 
 ```
-https://laravel-template.ddev.site/coverage
+https://laravel-12-template.ddev.site/coverage
 ```
 
 ## Queues

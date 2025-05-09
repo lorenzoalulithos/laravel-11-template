@@ -138,7 +138,7 @@ function remove_readme_paragraphs(string $file): void
  */
 function replaceForWindows(): array
 {
-    return preg_split('/\\r\\n|\\r|\\n/', run('dir /S /B * | findstr /v /i .git\ | findstr /v /i vendor | findstr /v /i ' . basename(__FILE__) . ' | findstr /r /i /M /F:/ "laravel-template laravel-template-name laravel-template-description"'));
+    return preg_split('/\\r\\n|\\r|\\n/', run('dir /S /B * | findstr /v /i .git\ | findstr /v /i vendor | findstr /v /i ' . basename(__FILE__) . ' | findstr /r /i /M /F:/ "laravel-12-template laravel-12-template-name laravel-12-template-description"'));
 }
 
 /**
@@ -146,7 +146,7 @@ function replaceForWindows(): array
  */
 function replaceForAllOtherOSes(): array
 {
-    return explode(\PHP_EOL, run('grep -E -r -l -i "laravel-template|laravel-template-name|laravel-template-description" --exclude-dir=vendor ./* .env.example ./.ddev/* | grep -v ' . basename(__FILE__)));
+    return explode(\PHP_EOL, run('grep -E -r -l -i "laravel-12-template|laravel-12-template-name|laravel-12-template-description" --exclude-dir=vendor ./* .env.example ./.ddev/* | grep -v ' . basename(__FILE__)));
 }
 
 /** @var string|false $currentDirectory */
@@ -184,9 +184,9 @@ foreach ($files as $file) {
     replace_in_file(
         $file,
         [
-            'laravel-template-description' => $description,
-            'laravel-template-name' => $projectName,
-            'laravel-template' => $projectSlug,
+            'laravel-12-template-description' => $description,
+            'laravel-12-template-name' => $projectName,
+            'laravel-12-template' => $projectSlug,
         ]
     );
 
